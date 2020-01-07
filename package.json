@@ -1,0 +1,127 @@
+{
+	"name": "vscode-jukebox-vlc",
+	"displayName": "vscode-jukebox-vlc",
+	"description": "",
+	"version": "0.0.1",
+	"publisher": "gabrielsule",
+	"author": {
+		"name": "Gabriel D. Sule",
+		"email": "gabrielsule@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gabrielsule/vscode-jukebox-vlc.git"
+	},	
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"musica",
+		"music",
+		"relax",
+		"ideas",
+		"jukebox",
+		"radio",
+		"vlc"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"icon": "resources/images/vinyl.png",
+	"contributes": {
+		"commands": [{
+				"command": "extension.loadmusic",
+				"title": "Load",
+				"category": "🎵 Music"
+			},
+			{
+				"command": "extension.startmusic",
+				"title": "Start",
+				"category": "🎵 Music"
+			},
+			{
+				"command": "extension.pausemusic",
+				"title": "Pause",
+				"category": "🎵 Music"
+			},
+			{
+				"command": "extension.stopmusic",
+				"title": "Stop",
+				"category": "🎵 Music"
+			},
+			{
+				"command": "extension.prevmusic",
+				"title": "Prev",
+				"category": "🎵 Music"
+			},
+			{
+				"command": "extension.nextmusic",
+				"title": "Next",
+				"category": "🎵 Music"
+			},
+			{
+				"command": "extension.loadradio",
+				"title": "Load",
+				"category": "🎵 Radio"
+			},
+			{
+				"command": "extension.stopradio",
+				"title": "Stop",
+				"category": "🎵 Radio"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "vlc",
+			"properties": {
+				"vlc.path": {
+					"type": "string",
+					"default": "D:\\Program Files (x86)\\VideoLAN\\VLC",
+					"description": "Ruta de instalación de VLC"
+				},
+				"vlc.address": {
+					"type": "string",
+					"default": "127.0.0.1",
+					"description": "Dirección de VLC web"
+				},
+				"vlc.port": {
+					"type": "number",
+					"default": 8080,
+					"description": "Puerto de VLC web"
+				},
+				"vlc.pass": {
+					"type": "string",
+					"default": "admin",
+					"description": "Password de VLC web"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"request": "^2.88.0",
+		"request-promise": "^4.2.5",
+		"vlc.js": "^4.0.0"
+	}
+}
