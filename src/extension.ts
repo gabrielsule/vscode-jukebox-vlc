@@ -16,7 +16,6 @@ let _sbPlayer: vscode.StatusBarItem;
 
 export function activate(context: vscode.ExtensionContext) {
 	const player = new Player();
-	player.setOutput();
 
 	let loadMusic = vscode.commands.registerCommand('extension.loadmusic', () => {
 		player.playerLoad();
@@ -64,6 +63,9 @@ export function activate(context: vscode.ExtensionContext) {
 	_sbPlayer = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
 
 	context.subscriptions.push(loadMusic, startMusic, stopMusic, pauseMusic, prevMusic, nextMusic, loadRario, stopRadio, loadPodcast);
+
+	player.setOutput();
+	player.setStatusBar();
 }
 
 class Player {
@@ -238,7 +240,7 @@ class Player {
 		_sbBtnRadio.command = 'extension.loadradio';
 		_sbBtnRadio.show();
 
-		_sbBtnPodcast.text = '$(radio-tower)';
+		_sbBtnPodcast.text = '$(rss)';
 		_sbBtnPodcast.command = 'extension.loadpodcast';
 		_sbBtnPodcast.show();
 	}
