@@ -36,43 +36,49 @@
 		"commands": [{
 				"command": "extension.loadmusic",
 				"title": "Load",
-				"category": "🎵 Music"
+				"category": "🎵 Jukebox Music"
 			},
 			{
 				"command": "extension.startmusic",
 				"title": "Start",
-				"category": "🎵 Music"
+				"category": "🎵 Jukebox Music"
 			},
 			{
 				"command": "extension.pausemusic",
 				"title": "Pause",
-				"category": "🎵 Music"
+				"category": "🎵 Jukebox Music"
 			},
 			{
 				"command": "extension.stopmusic",
 				"title": "Stop",
-				"category": "🎵 Music"
+				"category": "🎵 Jukebox Music"
 			},
 			{
 				"command": "extension.prevmusic",
 				"title": "Prev",
-				"category": "🎵 Music"
+				"category": "🎵 Jukebox Music"
 			},
 			{
 				"command": "extension.nextmusic",
 				"title": "Next",
-				"category": "🎵 Music"
+				"category": "🎵 Jukebox Music"
 			},
 			{
 				"command": "extension.loadradio",
 				"title": "Load",
-				"category": "🎵 Radio"
+				"category": "🎵 Jukebox Radio"
 			},
 			{
 				"command": "extension.stopradio",
 				"title": "Stop",
-				"category": "🎵 Radio"
+				"category": "🎵 Jukebox Radio"
+			},
+			{
+				"command": "extension.loadpodcast",
+				"title": "Load",
+				"category": "🎵 Jukebox Podcast"
 			}
+
 		],
 		"configuration": {
 			"type": "object",
@@ -97,6 +103,11 @@
 					"type": "string",
 					"default": "admin",
 					"description": "Password de VLC web"
+				},
+				"vlc.radio": {
+					"type": "string",
+					"default": "",
+					"description": "Url de radio online"
 				}
 			}
 		}

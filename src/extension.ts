@@ -10,12 +10,13 @@ let _sbBtnStop: vscode.StatusBarItem;
 let _sbBtnPrev: vscode.StatusBarItem;
 let _sbBtnNext: vscode.StatusBarItem;
 let _sbBtnRadio: vscode.StatusBarItem;
+let _sbBtnPodcast: vscode.StatusBarItem;
 let _sbPlayer: vscode.StatusBarItem;
 
 
 export function activate(context: vscode.ExtensionContext) {
-
 	const player = new Player();
+	player.setOutput();
 
 	let loadMusic = vscode.commands.registerCommand('extension.loadmusic', () => {
 		player.playerLoad();
@@ -49,17 +50,21 @@ export function activate(context: vscode.ExtensionContext) {
 		player.radioStop();
 	});
 
-	_sbBtnOpen = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 7);
-	_sbBtnPlay = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 6);
-	_sbBtnPrev = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 5);
-	_sbBtnStop = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 4);
-	_sbBtnNext = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 3);
-	_sbBtnRadio = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 2);
+	let loadPodcast = vscode.commands.registerCommand('extension.loadpodcast', () => {
+		player.podcastLoad();
+	});
+
+	_sbBtnOpen = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 8);
+	_sbBtnPlay = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 7);
+	_sbBtnPrev = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 6);
+	_sbBtnStop = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 5);
+	_sbBtnNext = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 4);
+	_sbBtnRadio = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 3);
+	_sbBtnPodcast = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 2);
 	_sbPlayer = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
 
-	context.subscriptions.push(loadMusic, startMusic, stopMusic, pauseMusic, prevMusic, nextMusic, loadRario, stopRadio);
+	context.subscriptions.push(loadMusic, startMusic, stopMusic, pauseMusic, prevMusic, nextMusic, loadRario, stopRadio, loadPodcast);
 }
-
 
 class Player {
 	_vlcPath: string = '';
@@ -152,8 +157,6 @@ class Player {
 	}
 
 	async radioLoad() {
-		this.setStatusBar();
-
 		let radio = await vscode.window.showInputBox({
 			placeHolder: 'Ingrgese la url de la radio',
 		});
@@ -167,6 +170,17 @@ class Player {
 
 	radioStop() {
 		this.playerStop();
+	}
+
+	async podcastLoad() {
+		let pod = await vscode.window.showInputBox({
+			placeHolder: 'Ingrgese la url del podcast',
+		});
+
+		if (pod !== null) {
+			this._client.command(`--podcast-urls=${pod}`);
+			this.filenamePlay();
+		}
 	}
 
 	filenamePlay() {
@@ -187,7 +201,8 @@ class Player {
 				.then(function (repos: any) {
 					jsonResult = JSON.parse(repos);
 					if (jsonResult.state === 'playing') {
-						_sbPlayer.text = jsonResult.information.category.meta.filename;
+						let _filename = jsonResult.information.category.meta.filename;
+						_sbPlayer.text = `$(unmute) ${_filename}`;
 						_sbPlayer.show();
 					}
 				})
@@ -222,6 +237,21 @@ class Player {
 		_sbBtnRadio.text = '$(radio-tower)';
 		_sbBtnRadio.command = 'extension.loadradio';
 		_sbBtnRadio.show();
+
+		_sbBtnPodcast.text = '$(radio-tower)';
+		_sbBtnPodcast.command = 'extension.loadpodcast';
+		_sbBtnPodcast.show();
+	}
+
+	setOutput() {
+		let _outChannel = vscode.window.createOutputChannel('Info');
+		_outChannel.appendLine(`Copyright (c) 2019  Gabriel D. Sule <gabrielsule@gmail.com>`);
+		_outChannel.appendLine('');
+		_outChannel.appendLine(`GitHub : https://github.com/gabrielsule/vscode-jukebox-vlc`);
+		_outChannel.appendLine(`Twitter: https://twitter.com/gabrielsule`);
+		_outChannel.appendLine(`Donate : https://www.buymeacoffee.com/HvQATbz`);
+		_outChannel.appendLine(`Patreon: https://www.patreon.com/GabrielDSule`);
+		_outChannel.show();
 	}
 }
 
