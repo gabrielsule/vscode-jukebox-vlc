@@ -25,13 +25,14 @@
 		"ideas",
 		"jukebox",
 		"radio",
+		"podcast",
 		"vlc"
 	],
 	"activationEvents": [
 		"*"
 	],
 	"main": "./out/extension.js",
-	"icon": "resources/images/vinyl.png",
+	"icon": "resources/images/jukebox.png",
 	"contributes": {
 		"commands": [{
 				"command": "extension.loadmusic",

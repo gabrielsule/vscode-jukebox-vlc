@@ -26,6 +26,9 @@ https://marketplace.visualstudio.com/items?itemName=gabrielsule.jukebox-vlc
 
 ![Jukebox capturas](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/jukebox4.png)
 
+## Settings
+![settings](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/settings.png)
+
 ## Agradecimientos
 * [Wikipedia](https://es.wikipedia.org/wiki/M%C3%BAsica)
 * [VLC](https://www.videolan.org)
