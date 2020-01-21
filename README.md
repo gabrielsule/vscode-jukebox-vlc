@@ -1,23 +1,30 @@
 ![Jukebox](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/jukebox.png) 
 
 # Jukebox-VLC
-
-La música (del griego: μουσική [τέχνη] - mousikē [téchnē], «el arte de las musas») es, según la definición tradicional del término, el arte de organizar sensible y lógicamente una combinación coherente de sonidos y silencios respetando los principios fundamentales de la melodía, la armonía y el ritmo, mediante la intervención de complejos procesos psicoanímicos. El concepto de música ha ido evolucionando desde su origen en la Antigua Grecia, en que se reunía sin distinción a la poesía, la música y la danza como arte unitario. Desde hace varias décadas se ha vuelto más compleja la definición de qué es y qué no es la música, ya que destacados compositores, en el marco de diversas experiencias artísticas fronterizas, han realizado obras que, si bien podrían considerarse musicales, expanden los límites de la definición de este arte.
+la música es el arte de coordinar y transmitir efectos sonoros, armoniosos y estéticamente válidos, los cuales son generados a través de la voz o de instrumentos musicales.
+Para poder reproducir la misma tenemos a **VLC** media player que es un reproductor y framework multimedia, libre y de código abierto desarrollado por el proyecto VideoLAN. Es un programa multiplataforma con versiones disponibles para muchos sistemas operativos, es capaz de reproducir casi cualquier formato de vídeo sin necesidad de instalar códecs externos
 
 https://marketplace.visualstudio.com/items?itemName=gabrielsule.jukebox-vlc&ssr=false#overview
 
-### Capturas
-![Jukebox Capturas](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/music1.png)
+### Ajustes de VLC
+![VLC ajustes](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/vlc1.png)
 
-![Jukebox Capturas](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/music2.png)
+![VLC ajustes](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/vlc2.png)
 
 ## Instalación
 https://marketplace.visualstudio.com/items?itemName=gabrielsule.jukebox-vlc
 
 ## Ejecución
+* desde el statusBar se puede controlar el reproductor de música, radio como así los podcast
 
-* presionar **F1**: y escribir music
-* desde el statusBar se puede controlar la música reproducida
+## Capturas
+![Jukebox capturas](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/jukebox1.png)
+
+![Jukebox capturas](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/jukebox2.png)
+
+![Jukebox capturas](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/jukebox3.png)
+
+![Jukebox capturas](https://raw.githubusercontent.com/gabrielsule/vscode-jukebox-vlc/master/assets/jukebox4.png)
 
 ## Agradecimientos
 * [Wikipedia](https://es.wikipedia.org/wiki/M%C3%BAsica)
